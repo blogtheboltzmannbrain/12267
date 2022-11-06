@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogpage1</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <style>
+        img{
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <h3>BLOG: <h1>The Boltzmann Brain</h1></h3>
+    <nav>
+        <a class="nav1" id="n1" href="index.html">Home</a>
+        <a class="nav1" id="n2" href="about.html">About</a>  
+        <a class="nav1" id="n3" href="team.html">Team</a>    
+        <a class="nav1" id="n4" href="blogs.html">Blogs</a>  
+        </nav>
+        <ol>
+            <h1 style="font-size:29px;">What does it mean to have a cryptocurrency?</h1>
+            <div>
+            <article>
+            <p>A cryptocurrency is a digital currency, which is an alternative form of payment created using blockchain</p>
+            <div><img src="https://static.wixstatic.com/media/e2f18b_6b1edd288264478d83efd7d22ab1615e~mv2.webp" alt="" ></div>
+            <p>But what is a Blockchain?</p>
+            <p>The Wikipedia says,</p>
+            <div class="quote">A blockchain is a type of distributed ledger technology (DLT) that consists of growing list of records, called <em>blocks</em>, that are securely linked together using cryptography.</div>
+            <p>Well this doesn't help much, at least for a beginner.</p>
+            <p>Let's take a bit more constructive approach towards the topic</p>
+            <div class="quote">&nbsp;Why use a ledger?</div>
+           <p>Say you have a group of few friends and you exchange money on various occasions throughout the month. It might be inconvenient to keep cash always to exchange, instead you create a website like a ledger where you keep entries like,</p>
+            <p>Alice giver Bob 100 Rs</p>
+            <p>Bob gives Jim 50 Rs.</p>
+            <p>And so on...</p>
+            <p>Now this ledger should be,</p>
+            <p>* Public, so that during each transaction one can add lines to it</p>
+            <p>* To confirm the transactions it should contain the signature of the payer.</p>
+            <div>
+            <div>
+            <div>
+            <div><img src="https://static.wixstatic.com/media/e2f18b_999c36f9711e4d8c8c008c2eb27c0e9c~mv2.jpg/v1/fill/w_438,h_338,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/e2f18b_999c36f9711e4d8c8c008c2eb27c0e9c~mv2.jpg" alt="" /></div>
+            </div>
+            </div>
+            </div>
+            <div class="quote" >How to confirm transactions in a ledger?</div> 
+            <p>Now the problem is how to make a digital signature that will be infeasible?</p>
+            <p>For this we will use a pair of strings(in computer terms) say keys.</p>
+            <p>One will be the Private or Secret key(sk) which serves as a secret password that proves authenticity other will be the Public key(pk) that serves as a public name and address.</p>
+            <p>Now to sign and verify the document we will create two functions,</p>
+            <p>The Sign Function,</p>
+            <p>This function will remember the payer and also the amount, so it has to be message dependent. It can be represented as follows,</p>
+            <p>Sign (Message, SK) = Signature (Usually 256 bit binary code)</p>
+            <p>The Verify Function,</p>
+            <p>This function will verify the payer, the receiver and the amount.</p>
+            <p>It can be represented as follows,</p>
+            <p>Verify (Message, Signature, PK) = True/False [Depending on whatever the transaction is actually signed by the payer]</p>
+            The problem with central authority
+            <p>Although the transaction is secured there is still a big problem, who hosts the website of the ledger? Whoever hosts it will have the power to alter the rules and entries.</p>
+            <p>The best solution is for everyone to keep their own copy of the actual ledger and update it with time as transactions happen.</p>
+            <p>So the centralized ledger becomes a decentralized ledger.</p>
+            <div class="quote">Order and arrangement of transactions </div>
+            <p>To keep an order in the list of transactions there should be a timestamp on each transaction based on a unique order system for everyone so that at a given time it has the same value for everyone on every corner of earth.</p>
+            <p>Now some of these transactions are stacked one by one in bundles, called Blocks.</p>
+            <p>And the sequence of consecutive blocks is called a Blockchain.</p>
+            <p>What if one receives contradicting blocks at once? Which one to trust?</p>
+            <p>Well the bitcoin blockchain solves it by looking for proof-of-work.</p>
+            <p>The block with the most proof-of-work is accepted into the ledger.</p>
+            <div class="quote">What is proof-of-work?</div>
+            <p>In the bitcoin network the members called miners confirm the transactions and add them to a block. Once a block is ready they try to find a number 'n' such that it when added to the end of the block and passed through a hashing function [A function that encrypts messages to binary stream, like SHA-256] creates a unique hash, say one starting with 30 zeros.</p>
+            <p>There is no other way to do it but to iterate through all the possible numbers and hope to get it faster than other miners. The first of the miners to get the number gets their block accepted to the ledger and gets a certain prize money called mining reward much like a lottery system.</p>
+            <p>Although that money too is a part of the ledger.</p>
+            <p>This process is called proof-of-work mechanism.</p>
+            <div class="quote">How proof-of-work confirms safety?</div>
+            <p>Once a block is accepted immediately miners start working on the next block.</p>
+            <p>If one happens to mine a corrupted block faster than all others and by sending faster than others adds it to the receiver's ledger still the honest miners block will reach the receiver. Now having two contradicting blocks the receiver will have to wait for next blocks. If the fraud sender doesn't keep mining and adding blocks to the chain faster than all other honest miners [Which is a absurdly impossible task] eventually his fraud chain will fall short and as per the bitcoin chain protocol,</p>
+            <p>"The longest chain is always correct"</p>
+            <p>So the fraud chain will be discarded eventually.</p>
+            <div>
+            <div>
+            <div>
+            <div><img src="https://static.wixstatic.com/media/e2f18b_9c280cc25ce4471e916b0cd6e4e17982~mv2.png/v1/fill/w_740,h_291,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/e2f18b_9c280cc25ce4471e916b0cd6e4e17982~mv2.png" alt="" /></div>
+            </div>
+            </div>
+            </div>
+            <div>Do we need all these details to trade or use cryptocurrencies on blockchains?</div>
+            <p>No. But to stay safe from frauds and to delve deeper later on, this is all what one should know to the least.</p>
+            <p>Cryptocurrencies are only a use case of blockchain technology.</p>
+            <p>This is far from a comprehensive guide on the topic but this should be enough to spark interest in the regarding topic.</p>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </article>
+            </div>
+            </div>
+            </div>
+            </li>
+            </ol>     
+</body>
+<footer>
+    <h3>The Boltzmann Brain</h3>
+    <p>blog.theboltzmannbrain@gmail.com</p>
+</footer>
+</html>
